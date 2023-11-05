@@ -11,7 +11,7 @@ import java.time.format.DateTimeFormatter;
 @SuppressWarnings("unused")
 public class ZonedDateTimeUtility {
 
-//	private static final Logger LOG = LoggerFactory.getLogger(ZonedDateTimeUtility.class);
+	private static final Logger LOG = LoggerFactory.getLogger(ZonedDateTimeUtility.class);
 	
 	public static final String CET = "Europe/Berlin";
 	public static final String UTC = "UTC";
@@ -26,7 +26,7 @@ public class ZonedDateTimeUtility {
 	public static String nice(ZonedDateTime zdt) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern(FORMAT);
 		String nice = zdt.format(formatter);
-//		LOG.debug("Nicing '{}' to '{}'", zdt, nice);
+		LOG.debug("Nicing '{}' to '{}'", zdt, nice);
 		return nice;
 	}
 	

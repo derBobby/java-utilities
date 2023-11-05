@@ -1,6 +1,5 @@
 package eu.planlos.javautilities;
 
-import eu.planlos.javautilities.GermanStringsUtility;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
