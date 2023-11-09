@@ -13,6 +13,6 @@ jobs:
 
     steps:
       - name: Use Shared Workflow Template
-        uses: derBobby/java-pipelines
+        uses: derBobby/java-pipelines@main
         with:
           path: .github/workflows/library-test-and-deploy.yml
