@@ -8,19 +8,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  library-test-and-deploy:
     runs-on: ubuntu-latest
-    steps:
-    - name: Checkout Git
-      uses: actions/checkout@v4
 
-    - name: Set up JDK
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: maven
-    - name: Publish to packages
-      run: mvn --batch-mode deploy -PTEST --file pom.xml
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Use Shared Workflow Template
+        uses: derBobby/java-pipelines
+        with:
+          path: .github/workflows/library-test-and-deploy.yml
