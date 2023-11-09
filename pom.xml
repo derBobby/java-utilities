@@ -41,4 +41,5 @@
             <url>https://maven.pkg.github.com/derBobby/java-utilities</url>
         </repository>
     </distributionManagement>
+
 </project>
