@@ -22,5 +22,8 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
+    - name: Debug
+      run: cat ~/.mvn/settings.xml
+
     - name: Test and publish to GitHub Packages
       run: mvn --batch-mode --file pom.xml deploy
