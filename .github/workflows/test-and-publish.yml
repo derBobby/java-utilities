@@ -1,4 +1,4 @@
-name: Test
+name: Test and publish
 
 on:
   pull_request:
@@ -8,16 +8,21 @@ on:
   workflow_dispatch:
 
 jobs:
-  test:
+  test-and-publish:
     runs-on: ubuntu-latest
     steps:
+
     - name: Checkout Git
       uses: actions/checkout@v4
-    - name: Set up JDK 17
+
+    - name: Set up JDK
       uses: actions/setup-java@v3
       with:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build with Maven
-      run: mvn -B package -PTEST --file pom.xml
+
+    - name: Test and publish to GitHub Packages
+      run: mvn --batch-mode --file pom.xml deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

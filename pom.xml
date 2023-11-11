@@ -9,6 +9,8 @@
     <version>1.0.0</version>
 
     <properties>
+        <github.user>derBobby</github.user>
+        <github.repo>${project.artifactId}</github.repo>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -33,5 +35,13 @@
             <version>2.0.9</version> <!-- You can specify the version you want to use -->
         </dependency>
     </dependencies>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>GitHub Packages</name>
+            <url>https://maven.pkg.github.com/${github.user}/${github.repo}</url>
+        </repository>
+    </distributionManagement>
 
 </project>
