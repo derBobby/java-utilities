@@ -5,6 +5,10 @@ on:
     types:
       - opened
 
+permissions:
+  pull-requests: write
+  contents: write
+
 jobs:
   merge:
     if: github.event.pull_request.user.login == 'dependabot[bot]'
