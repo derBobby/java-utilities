@@ -6,13 +6,14 @@ on:
       - opened
       - synchronize
 
-permissions:
-  pull-requests: write
-  contents: write
+
 
 jobs:
   merge:
     if: github.actor == 'dependabot[bot]' || github.event.pull_request.user.login == 'dependabot[bot]'
+    permissions:
+      pull-requests: write
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Merge Dependabot PR
