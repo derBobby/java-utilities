@@ -13,3 +13,9 @@ jobs:
     uses: ./.github/workflows/callable-mvn.yml
     with:
       mvn-stage: deploy
+
+  codeql:
+    needs: test
+    uses: ./.github/workflows/callable-codeql.yml
+
+#TODO deploy only if java code changed

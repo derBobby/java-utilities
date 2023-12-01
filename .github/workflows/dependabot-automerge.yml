@@ -2,8 +2,6 @@ name: Merge Dependabot PR
 
 on:
   pull_request:
-  workflow_dispatch:
-  workflow_call:
 
 jobs:
 
