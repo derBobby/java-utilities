@@ -1,0 +1,26 @@
+
+name: "Maven"
+
+on:
+  workflow_call:
+    inputs:
+      mvn-stage:
+        required: true
+        type: string
+
+jobs:
+  maven:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Git
+        uses: actions/checkout@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+      - name: Test and publish to GitHub Packages
+        run: mvn --batch-mode --file pom.xml ${{ inputs.mvn-stage }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
