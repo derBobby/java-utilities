@@ -6,7 +6,7 @@ on:
 jobs:
 
   test:
-    uses: ./.github/workflows/callable-maven.yml
+    uses: ./.github/workflows/callable-mvn.yml
     with:
       mvn-stage: test
 
