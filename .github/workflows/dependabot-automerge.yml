@@ -15,6 +15,13 @@ jobs:
     if: github.actor == 'dependabot[bot]' || github.event.pull_request.user.login == 'dependabot[bot]'
     runs-on: ubuntu-latest
     steps:
+
+      - name: Diagnostics
+        run: |
+          env
+          echo "Token: ${{ secrets.GITHUB_TOKEN }}"
+          curl -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -s https://api.github.com/user
+
       - name: Check Token Scopes
         run: |
           echo "Token Scopes: $(curl -H \"Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}\" -s https://api.github.com/user)"
