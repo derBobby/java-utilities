@@ -16,7 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check Token Scopes
-        run: echo "Token Scopes: $(curl -H \"Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}\" -s https://api.github.com/user | jq -r .scopes)"
+        run: |
+          echo "Token Scopes: $(curl -H \"Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}\" -s https://api.github.com/user | jq -r .scopes)"
 
       - name: Merge Dependabot PR
         uses: juliangruber/merge-pull-request-action@v1
