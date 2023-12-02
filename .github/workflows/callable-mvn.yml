@@ -23,3 +23,11 @@ jobs:
         run: mvn --batch-mode --file pom.xml ${{ inputs.mvn-stage }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Print dir
+        run: find . -name
+      - name: Save Maven Cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('pom.xml') }}
