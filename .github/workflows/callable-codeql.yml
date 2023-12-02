@@ -42,7 +42,7 @@ jobs:
     - name: Print dir2
       run: find . ! -path "./.git/*"
     - name: Print tgz
-      run: /usr/bin/tar -z -tf /home/runner/work/_temp/3dd0b255-10a8-480c-bda1-636e89f73467/cache.tgz
+      run: /usr/bin/tar -z -tf /home/runner/work/_temp/*/cache.tgz
       # Custom step
     - name: Set up JDK 17
       uses: actions/setup-java@v4
