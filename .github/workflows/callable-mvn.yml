@@ -18,16 +18,16 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: maven
       - name: Run maven (mvn ${{ inputs.mvn-stage }})
         run: mvn --batch-mode --file pom.xml ${{ inputs.mvn-stage }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Print dir
-        run: find .
-      - name: Save Maven Cache
+        run: find . ! -path "./.git/*"
+      - name: Save maven cache
         uses: actions/cache@v2
         with:
           path: |
-            ~/.m2/repository
+            ~/.m2
+            ~/target
           key: ${{ runner.os }}-maven-${{ hashFiles('pom.xml') }}
