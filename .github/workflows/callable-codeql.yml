@@ -30,8 +30,6 @@ jobs:
       uses: actions/checkout@v4
     - name: Print pwd
       run: pwd
-    - name: Print tgz
-      run: /usr/bin/tar -z -tf /home/runner/work/_temp/3dd0b255-10a8-480c-bda1-636e89f73467/cache.tgz
     - name: Print dir1
       run: find . ! -path "./.git/*"
     - name: Load maven cache
@@ -43,6 +41,8 @@ jobs:
         key: maven-${{ github.run_id }}
     - name: Print dir2
       run: find . ! -path "./.git/*"
+    - name: Print tgz
+      run: /usr/bin/tar -z -tf /home/runner/work/_temp/3dd0b255-10a8-480c-bda1-636e89f73467/cache.tgz
       # Custom step
     - name: Set up JDK 17
       uses: actions/setup-java@v4
