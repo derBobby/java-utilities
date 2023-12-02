@@ -36,7 +36,7 @@ jobs:
         path: |
           ~/.m2
           ~/target
-        key: ${{ runner.os }}-maven-${{ hashFiles('pom.xml') }}
+        key: maven-${{ github.run_id }}
     - name: Print dir2
       run: find . ! -path "./.git/*"
       # Custom step
