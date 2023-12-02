@@ -1,4 +1,4 @@
-name: Maven test and publish
+name: "CD"
 
 on:
   pull_request:

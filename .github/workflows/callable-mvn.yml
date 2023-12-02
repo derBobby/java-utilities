@@ -1,5 +1,4 @@
-
-name: "Maven"
+name: "Callable maven"
 
 on:
   workflow_call:
@@ -20,7 +19,7 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
-      - name: Test and publish to GitHub Packages
+      - name: Run maven (mvn ${{ inputs.mvn-stage }})
         run: mvn --batch-mode --file pom.xml ${{ inputs.mvn-stage }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
