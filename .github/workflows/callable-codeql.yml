@@ -28,6 +28,8 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
+    - name: Print pwd
+      run: pwd
     - name: Print dir1
       run: find . ! -path "./.git/*"
     - name: Load maven cache
