@@ -56,13 +56,13 @@ jobs:
       #- name: Autobuild
       #  uses: github/codeql-action/autobuild@v2
     - name: DEBUG
-      run: find . ! -path "./.git/*"
+      run: find ~ ! -path "./.git/*"
     - name: Build Java
       run: mvn --batch-mode --file pom.xml compile
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: DEBUG
-      run: find . ! -path "./.git/*"
+      run: find ~ ! -path "./.git/*"
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
       with:
