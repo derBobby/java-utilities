@@ -28,6 +28,6 @@ jobs:
         uses: actions/cache@v2
         with:
           path: |
-            ~/.m2
-            ~/target
+            ./.m2
+            ./target
           key: maven-${{ github.run_id }}

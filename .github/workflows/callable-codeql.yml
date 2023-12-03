@@ -28,14 +28,12 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
-    - name: DEBUG
-      run: pwd ; cd ~ ; pwd
     - name: Load maven cache
       uses: actions/cache@v2
       with:
         path: |
-          ~/.m2
-          ~/target
+          ./.m2
+          ./target
         key: maven-${{ github.run_id }}
       # Custom step
     - name: Set up JDK 17
