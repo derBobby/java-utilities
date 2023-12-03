@@ -1,21 +1,19 @@
-name: Merge Dependabot PR
+name: "Merge Dependabot PR"
 
 on:
   pull_request:
 
 jobs:
-
-  test:
+  mvn-test:
     uses: ./.github/workflows/callable-mvn.yml
     with:
       mvn-stage: test
-
+  # TODO necessary?
   codeql:
-    needs: test
+    needs: mvn-test
     uses: ./.github/workflows/callable-codeql.yml
-
-  automerge:
-    needs: codeql
+  merge:
+    needs: mvn-test
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
