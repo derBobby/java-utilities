@@ -13,10 +13,8 @@ jobs:
     uses: ./.github/workflows/callable-mvn.yml
     with:
       mvn-stage: deploy
-
   codeql:
     needs: mvn-publish
     uses: ./.github/workflows/callable-codeql.yml
 
 #TODO deploy only if java code changed
-#TODO must codeql checkout and build or can it rely on the results here?
