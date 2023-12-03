@@ -10,11 +10,11 @@ on:
 
 jobs:
   mvn-publish:
-    uses: derBobby/java-pipelines/.github/workflows/callable-mvn.yml
+    uses: derBobby/java-pipelines/.github/workflows/callable-mvn.yml@main
     with:
       mvn-stage: deploy
   codeql:
     needs: mvn-publish
-    uses: derBobby/java-pipelines/.github/workflows/callable-codeql.yml
+    uses: derBobby/java-pipelines/.github/workflows/callable-codeql.yml@main
 
 #TODO deploy only if java code changed
