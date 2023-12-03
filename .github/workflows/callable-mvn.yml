@@ -21,5 +21,5 @@ jobs:
           cache: maven
       - name: Run maven (mvn ${{ inputs.mvn-stage }})
         run: mvn --batch-mode --file pom.xml ${{ inputs.mvn-stage }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
