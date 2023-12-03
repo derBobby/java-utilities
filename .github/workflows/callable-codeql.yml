@@ -28,10 +28,8 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4
-    - name: Print pwd
-      run: pwd
-    - name: Print dir1
-      run: find . ! -path "./.git/*"
+    - name: DEBUG
+      run: pwd ; cd ~ ; pwd
     - name: Load maven cache
       uses: actions/cache@v2
       with:
@@ -39,10 +37,6 @@ jobs:
           ~/.m2
           ~/target
         key: maven-${{ github.run_id }}
-    - name: Print dir2
-      run: find . ! -path "./.git/*"
-    - name: Print tgz
-      run: find /home/runner/work/_temp -name "cache.tgz" -exec /usr/bin/tar -z -tf {} \;
       # Custom step
     - name: Set up JDK 17
       uses: actions/setup-java@v4
