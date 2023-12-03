@@ -5,7 +5,7 @@ on:
 
 jobs:
   mvn-test:
-    uses: ./.github/workflows/callable-mvn.yml
+    uses: derBobby/java-pipelines/.github/workflows/callable-mvn.yml
     with:
       mvn-stage: test
   # TODO necessary?
