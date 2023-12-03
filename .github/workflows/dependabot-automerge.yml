@@ -11,7 +11,7 @@ jobs:
   # TODO necessary?
   codeql:
     needs: mvn-test
-    uses: ./.github/workflows/callable-codeql.yml@main
+    uses: derBobby/java-pipelines/.github/workflows/callable-codeql.yml@main
   merge:
     needs: mvn-test
     runs-on: ubuntu-latest
