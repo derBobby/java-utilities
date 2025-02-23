@@ -2,16 +2,17 @@ name: "Merge Dependabot PR"
 
 on:
   pull_request:
+    types:
+      - opened
 
 jobs:
   mvn-test:
-    uses: derBobby/java-pipelines/.github/workflows/callable-mvn.yml@main
+    uses: derBobby/java-pipelines/.github/workflows/callable-mvn.yml@v4.0.3
     with:
       mvn-stage: test
-  # TODO necessary?
   codeql:
     needs: mvn-test
-    uses: derBobby/java-pipelines/.github/workflows/callable-codeql.yml@main
+    uses: derBobby/java-pipelines/.github/workflows/callable-codeql.yml@v4.0.3
   merge:
     needs: mvn-test
     runs-on: ubuntu-latest
